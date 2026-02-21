@@ -4,18 +4,18 @@ import cv2
 # Connect to camera
 cam = cv2.VideoCapture(0)
 
-# Capture one frame
+# Capture one frame as a picture
 ret, frame = cam.read()
-
 if ret:
     cv2.imwrite("captured_image.png", frame)
 else:
     print("Failed to capture image.")
-
 cam.release()
 
+# Store captured image into variable 'image
 image= cv2.imread('captured_image.png')
 
+# Convert to grayscale
 gray= cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
 
 edges= cv2.Canny(gray, 50,200)
